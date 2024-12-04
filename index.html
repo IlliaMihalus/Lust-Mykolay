@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Лист Святому Миколаю</title>
+    <style>
+        /* Загальний стиль для сторінки */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Сніжинки (фонові ефекти) */
+        .snowflakes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.9;
+        }
+        .snowflakes div {
+            position: absolute;
+            top: -10px;
+            width: 8px;
+            height: 8px;
+            background-color: #fff;
+            border-radius: 50%;
+            animation: fall 10s linear infinite;
+        }
+        @keyframes fall {
+            0% {
+                transform: translateY(-10px);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+
+        /* Заголовок */
+        header {
+            background-color: #e74c3c;
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+            border-bottom: 4px solid #c0392b;
+            background-image: url('https://www.example.com/path-to-your-snowflakes-icon.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: top center;
+            animation: fadeIn 2s ease-out;
+        }
+
+        header h1 {
+            font-size: 50px;
+            margin: 0;
+            font-family: 'Georgia', serif;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            animation: slideIn 1s ease-out;
+        }
+
+        /* Анімація для заголовку */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            0% { transform: translateY(-50px); }
+            100% { transform: translateY(0); }
+        }
+
+        /* Основний контент */
+        main {
+            background-color: white;
+            margin: 40px auto;
+            padding: 50px;
+            width: 80%;
+            max-width: 800px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1;
+            border-top: 4px solid #e74c3c;
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        /* Анімація для основного контенту */
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(50px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Стиль для списку побажань */
+        ul {
+            list-style-type: square;
+            padding-left: 20px;
+            font-size: 20px;
+            margin-top: 20px;
+        }
+
+        ul li {
+            margin-bottom: 12px;
+        }
+
+        /* Підпис у футері */
+        footer {
+            background-color: #e74c3c;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 20px;
+            animation: fadeIn 2s ease-out;
+        }
+
+        /* Анімація для зірок */
+        .star {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            width: 100px;
+            height: 100px;
+            background-image: url('https://www.example.com/star-icon.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            transform: translateX(-50%);
+            animation: blink 2s infinite alternate;
+        }
+
+        /* Блиск зірки */
+        @keyframes blink {
+            0% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.5;
+                transform: scale(1.1);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Гірлянда (світлові лампочки) */
+        .garland {
+            position: absolute;
+            top: 150px; /* Висота для гірлянди */
+            left: 0;
+            width: 100%;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+        }
+
+        .garland .light {
+            width: 20px;
+            height: 20px;
+            background-color: #f39c12;
+            border-radius: 50%;
+            margin: 0 10px;
+            animation: flicker 1s infinite alternate;
+        }
+
+        .garland .light:nth-child(odd) {
+            background-color: #e74c3c;
+            animation-duration: 1.5s;
+        }
+
+        .garland .light:nth-child(even) {
+            background-color: #16a085;
+            animation-duration: 2s;
+        }
+
+        /* Анімація для світлових лампочок */
+        @keyframes flicker {
+            0% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.5;
+                transform: scale(1.2);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Падаючі зірки */
+        .falling-star {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 10px;
+            height: 10px;
+            background-color: #fff;
+            border-radius: 50%;
+            animation: fallStar 5s linear infinite;
+        }
+
+        @keyframes fallStar {
+            0% {
+                top: -10px;
+                opacity: 1;
+            }
+            100% {
+                top: 100vh;
+                opacity: 0;
+            }
+        }
+
+        /* Адаптивний дизайн для маленьких екранів */
+        @media screen and (max-width: 768px) {
+            main {
+                width: 90%;
+                padding: 20px;
+            }
+
+            header h1 {
+                font-size: 30px;
+            }
+
+            footer p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Сніжинки -->
+    <div class="snowflakes">
+        <div style="left: 10%; animation-duration: 12s; animation-delay: 0s;"></div>
+        <div style="left: 20%; animation-duration: 10s; animation-delay: 1s;"></div>
+        <div style="left: 30%; animation-duration: 14s; animation-delay: 2s;"></div>
+        <div style="left: 40%; animation-duration: 9s; animation-delay: 3s;"></div>
+        <div style="left: 50%; animation-duration: 11s; animation-delay: 4s;"></div>
+        <div style="left: 60%; animation-duration: 13s; animation-delay: 5s;"></div>
+        <div style="left: 70%; animation-duration: 12s; animation-delay: 6s;"></div>
+        <div style="left: 80%; animation-duration: 15s; animation-delay: 7s;"></div>
+        <div style="left: 90%; animation-duration: 10s; animation-delay: 8s;"></div>
+    </div>
+
+    <!-- Гірлянда -->
+    <div class="garland">
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light"></div>
+    </div>
+
+    <!-- Падаючі зірки -->
+    <div class="falling-star" style="left: 5%; animation-delay: 2s;"></div>
+    <div class="falling-star" style="left: 20%; animation-delay: 3s;"></div>
+    <div class="falling-star" style="left: 40%; animation-delay: 4s;"></div>
+    <div class="falling-star" style="left: 60%; animation-delay: 1s;"></div>
+
+    <!-- Зірка для додавання елементів новорічної атрибутики -->
+    <div class="star"></div>
+
+    <header>
+        <h1>Дорогий Святий Миколаю!</h1>
+    </header>  
+
+    <main>
+        <p>Я старанно чекав на твій візит і дуже хочу подякувати тобі за всі добрі справи, які ти робиш для дітей по всьому світу. Цього року я був дуже старанним, допомагав вдома і в школі. Тому я вирішив написати до тебе. Моїх бажань не так багато, але вони справжні. Прошу тебе, якщо це можливо, виконати хоча б одне з них:</p>
+        
+        <ul>
+            <li>Миша Logitech G PRO X Superlight 2 white</li>
+            <li>Щось від себе, що ти вважаєш за необхідне</li>
+        </ul>
+        
+        <p>Я обіцяю продовжувати бути хорошим і допомагати тим, хто мене оточує. Дякую за твою доброту та увагу!</p>
+    </main>
+
+    <footer>
+        <p>З найкращими побажаннями, <br>Ілля Михалусь 2025</p>
+    </footer>
+
+</body>      
+</html>
